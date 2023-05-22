@@ -2,6 +2,7 @@ import { _decorator, CCInteger, Component, director, EventKeyboard, input, Input
 import { Ground } from './Ground';
 import { Results } from './Results';
 import { Bird } from './Bird';
+import { PipePool } from './PipePool';
 const { ccclass, property } = _decorator;
 
 @ccclass('GameCtrl')
@@ -32,9 +33,15 @@ export class GameCtrl extends Component {
 
     @property({
         type: Bird,
-        tooltip: 'Add results here'
+        tooltip: 'Add bird here'
     })
     public bird: Bird;
+
+    @property({
+        type: PipePool,
+        tooltip: 'Add canvas here'
+    })
+    public pipeQueue: PipePool
 
     // Things to do when the game loads
     onLoad(): void {
@@ -58,6 +65,7 @@ export class GameCtrl extends Component {
         })
     }
 
+    // For testing purposes, we use this. But hide as comments after you finish the game
     onKeyDown(event: EventKeyboard) {
         switch (event.keyCode) {
             case KeyCode.KEY_A:
@@ -81,6 +89,9 @@ export class GameCtrl extends Component {
         // Reset score, bird and pipes
         this.result.resetScore();
 
+        // Reset the pipes
+        this.pipeQueue.reset();
+
         // Get objects moving again
         this.startGame();
     }
@@ -103,10 +114,17 @@ export class GameCtrl extends Component {
         director.resume();
     }
 
+    // When a pipe passes the bird, do this
+    passPipe() {
+        // Passed a pipe, get a point
+        this.result.addScore();
+    }
 
-
-
-
+    // When the old pipe goes away, create a new pipe
+    createPipe() {
+        // Add a new pipe to the pipe pool
+        this.pipeQueue.addPool();
+    }
 
 }
 

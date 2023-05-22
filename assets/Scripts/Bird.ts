@@ -16,12 +16,6 @@ export class Bird extends Component {
     })
     public jumpDuration: number = 1.5;
 
-    // @property({
-    //     type: GameCtrl,
-    //     tooltip: 'Add GameCtrl here'
-    // })
-    // public game: GameCtrl;
-
     // Animation property of the bird
     public birdAnimation: Animation;
 
@@ -37,6 +31,7 @@ export class Bird extends Component {
     }
 
     resetBird() {
+        console.log("Reset bird")
         // Create original bird location
         this.birdLocation = new Vec3(0, 0, 0);
         // Place bird in location
@@ -44,6 +39,7 @@ export class Bird extends Component {
     }
 
     fly() {
+        console.log("bird fly 1")
         // Stop the bird animation immediately
         this.birdAnimation.stop();
         // Start the movement of the bird
@@ -58,11 +54,8 @@ export class Bird extends Component {
 
         // Play the bird animation
         this.birdAnimation.play();
+        console.log("bird fly 2")
     }
-
-
-
-
 }
 
 
