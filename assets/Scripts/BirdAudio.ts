@@ -1,6 +1,13 @@
 import { _decorator, AudioClip, AudioSource, Component, Node } from 'cc';
 const { ccclass, property } = _decorator;
 
+export enum BirdSound {
+    SWOOSH,
+    POINT,
+    HIT,
+    DIE
+}
+
 @ccclass('BirdAudio')
 export class BirdAudio extends Component {
     @property({

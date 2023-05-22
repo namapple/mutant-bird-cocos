@@ -148,7 +148,7 @@
     "ground": {
       "__id__": 5
     },
-    "speed": 300,
+    "speed": 50,
     "pipeSpeed": 200,
     "result": {
       "__id__": 33
@@ -374,7 +374,7 @@
     "_priority": 0,
     "_fov": 45,
     "_fovAxis": 0,
-    "_orthoHeight": 479.99999999999994,
+    "_orthoHeight": 480,
     "_near": 0,
     "_far": 1000,
     "_color": {
@@ -687,7 +687,7 @@
       "y": 0
     },
     "_angularVelocity": 0,
-    "_fixedRotation": false,
+    "_fixedRotation": true,
     "_id": "505w/eofdNAYqBB+As7ecB"
   },
   {

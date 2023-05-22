@@ -3,7 +3,7 @@ import { Ground } from "./Ground";
 import { Results } from "./Results";
 import { Bird } from "./Bird";
 import { PipePool } from "./PipePool";
-import { BirdAudio } from "./BirdAudio";
+import { BirdAudio, BirdSound } from "./BirdAudio";
 const { ccclass, property } = _decorator;
 
 @ccclass("GameCtrl")
@@ -81,7 +81,7 @@ export class GameCtrl extends Component {
       if (this.isOver == false) {
         // Have bird fly
         this.bird.fly();
-        this.clip.onAudioQueue(0);
+        this.clip.onAudioQueue(BirdSound.SWOOSH);
       }
     });
   }
@@ -121,7 +121,7 @@ export class GameCtrl extends Component {
     // game is over
     this.isOver = true;
 
-    this.clip.onAudioQueue(3);
+    this.clip.onAudioQueue(BirdSound.DIE);
 
     // Pause the game
     director.pause();
@@ -136,7 +136,7 @@ export class GameCtrl extends Component {
     this.pipeQueue.reset();
 
     // game is over
-    this.isOver = true;
+    this.isOver = false;
 
     // Get objects moving again
     this.startGame();
@@ -144,7 +144,7 @@ export class GameCtrl extends Component {
 
   passPipe() {
     this.result.addScore();
-    this.clip.onAudioQueue(1);
+    this.clip.onAudioQueue(BirdSound.POINT);
   }
 
   createPipes() {
@@ -161,7 +161,7 @@ export class GameCtrl extends Component {
 
   onBeginContact(selfCollider: Collider2D, otherCollider: Collider2D, contact: IPhysics2DContact | null) {
     this.bird.hitSomething = true;
-    this.clip.onAudioQueue(2);
+    this.clip.onAudioQueue(BirdSound.HIT);
   }
 
   birdStruck() {

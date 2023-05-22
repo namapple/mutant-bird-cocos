@@ -43,6 +43,8 @@ export class Pipes extends Component {
     this.game = find("GameCtrl").getComponent("GameCtrl");
     this.pipeSpeed = this.game.pipeSpeed;
     this.initPos();
+
+    this.isPass = false;
   }
 
   initPos() {
