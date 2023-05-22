@@ -7,8 +7,9 @@ import {
     Canvas,
     director,
 } from "cc";
-import { GameCtrl } from "./GameCtrl";
-const { ccclass, property } = _decorator;
+import {GameCtrl} from "./GameCtrl";
+
+const {ccclass, property} = _decorator;
 
 @ccclass("Ground")
 export class Ground extends Component {
@@ -102,8 +103,6 @@ export class Ground extends Component {
         this.ground1.setPosition(this.tempStartLocation1);
         this.ground2.setPosition(this.tempStartLocation2);
         this.ground3.setPosition(this.tempStartLocation3);
-
-
 
 
     }

@@ -1,5 +1,6 @@
-import { _decorator, Component, Label, Node } from 'cc';
-const { ccclass, property } = _decorator;
+import {_decorator, Component, Label, Node} from 'cc';
+
+const {ccclass, property} = _decorator;
 
 @ccclass('Results')
 export class Results extends Component {
